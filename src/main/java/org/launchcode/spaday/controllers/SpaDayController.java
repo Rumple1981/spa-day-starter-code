@@ -46,7 +46,8 @@ public class SpaDayController {
     @GetMapping(value="")
     @ResponseBody
     public String customerForm () {
-        String html = "<form method = 'post'>" +
+//      String html = "<form               method = 'post'>" +
+        String html = "<form action='menu' method = 'post'>" + // bonus 3
                 "Name: <br>" +
                 "<input type = 'text' name = 'name'>" +
                 "<br>Skin type: <br>" +
@@ -66,8 +67,14 @@ public class SpaDayController {
                 "</form>";
         return html;
     }
+//    // bonus 3
+    @GetMapping("menu")
+    public String redirectToForm() {
+        return "redirect:";    // tymeleaf code to go to index.html
+    }
 
-    @PostMapping(value="")
+//    @PostMapping(value="")
+    @PostMapping(value="menu") // bonus 3
     public String spaMenu(@RequestParam String name, @RequestParam String skintype, @RequestParam String manipedi, Model model) {
 
         //variables creation section -ek
