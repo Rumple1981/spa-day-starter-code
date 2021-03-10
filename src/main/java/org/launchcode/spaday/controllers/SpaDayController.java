@@ -60,6 +60,7 @@ public class SpaDayController {
                 "<select name = 'manipedi'>" +
                 "<option value = 'manicure'>Manicure</option>" +
                 "<option value = 'pedicure'>Pedicure</option>" +
+                "<option value = 'both'>Both</option>" +
                 "</select><br>" +
                 "<input type = 'submit' value = 'Submit'>" +
                 "</form>";
@@ -69,12 +70,14 @@ public class SpaDayController {
     @PostMapping(value="")
     public String spaMenu(@RequestParam String name, @RequestParam String skintype, @RequestParam String manipedi, Model model) {
 
+        //variables creation section -ek
         ArrayList<String> facials = new ArrayList<String>();
         facials.add("Microdermabrasion");
         facials.add("Hydrofacial");
         facials.add("Rejuvenating");
         facials.add("Enzyme Peel");
 
+        //logic section-ek
         ArrayList<String> appropriateFacials = new ArrayList<String>();
         for (int i = 0; i < facials.size(); i ++) {
             if (checkSkinType(skintype,facials.get(i))) {
@@ -82,6 +85,11 @@ public class SpaDayController {
             }
         }
 
+        // attribute section-ek
+        model.addAttribute("customerName",name);
+        model.addAttribute("customerSkinType",skintype);
+        model.addAttribute("customerNailType",manipedi);
+        model.addAttribute("facialOptions",appropriateFacials);
         return "menu";
     }
 }

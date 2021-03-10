@@ -10,6 +10,12 @@ div {
     background-color: white;
 }
 
+div.nailPolish {
+    height: 5em;
+    width: 5em
+    margin: 1em
+}
+
 h1 {
     margin: auto;
         width: 50%;

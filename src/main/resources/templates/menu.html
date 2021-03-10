@@ -8,8 +8,51 @@
 <body>
 <h1>My Super Fancy Spa</h1>
 <div id = "clientProfile">
+    <h2>My Profile</h2>
+<!-- key line-->
+    <p th:text="${customerName}">the name</p>
+    <p th:text="${customerSkinType}">the skin type</p>
+    <p th:text="${customerNailType}">the nail type</p>
+    <p></p>
 </div>
 <div id = "servicesMenu">
+    <table>
+        <tr>
+            <th>facial options</th>
+        </tr>
+        <th:block th:each="Option : ${facialOptions}">
+            <tr>
+                <td th:text="${Option}"></td>
+            </tr>
+        </th:block>
+    </table>
+
+        <th:block th:if='${customerNailType.equals("manicure") || customerNailType.equals("both")}'>
+            <h3>Manicure</h3>
+            <p th:replace="fragments :: manicureDescription"></p>
+        </th:block>
+
+        <th:block th:if='${customerNailType.equals("pedicure") || customerNailType.equals("both")}'>
+            <h3>Pedicure</h3>
+            <p th:replace="fragments :: pedicureDescription"></p>
+        </th:block>
+
+<!--        <th:block th:if='${customerNailType.equals("both")}'>-->
+<!--            <h3>Pedicure</h3>-->
+<!--            <p th:replace="fragments :: pedicureDescription + manicureDescription"></p>-->
+<!--        </th:block>-->
+
+    <footer>
+        <h3>nail polish options</h3>
+        <div class="nailPolish" style="background-color: rgba(50, 115, 220, 0.3)"; >
+        </div>
+
+        <div class="nailPolish" style="background-color: rgba(227, 162, 50, 0.3)"; >
+        </div>
+
+        <div class="nailPolish" style="background-color: rgba(227, 50, 100, 0.3)"; >
+        </div>
+    </footer>
 </div>
 </body>
 </html>
