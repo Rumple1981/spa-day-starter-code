@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--step 6-->
+<!--Within the add.html template, create a form that accepts inputs for each of the User class properties. -->
+<!--Include an additional password input field to verify the password input. -->
+<!--The form should be set up to POST to /user.-->
+
+
+<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!-- 6a copy form provided in serviceSelection.html-->
+<!-- 6b modify form to handle username, email, password, plus verify password from java/../models/User-->
+    <form method = 'post' action="/user"> <!--6f The form should be set up to POST to /user. by adding action="/user"-->
+<!--    <form method = 'post' th:action="/user">   also works -->
+<!--<form method = 'post'             > -->
+<!--        6c add new "<label>" "username"-->
+        <label>
+            Username:
+            <input type="text" name="username"/> <!--instructor recommends ending tag with / for clarity-->
+        </label>
+<!--        6d add new "<label>" "email"-->
+        <label>
+            Email:
+            <input type="email" name="email"/> <!--instructor recommends ending tag with / for clarity-->
+        </label>
+<!--        6d add new "<label>" "password"-->
+        <label>
+            Password:
+            <input type="password" name="password"/> <!--instructor recommends ending tag with / for clarity-->
+        </label>
+<!--        6e add new "<label>" "verify password"-->
+        <label>
+            Verify Password:
+            <input type="password" name="verifyPassword"/> <!--instructor recommends ending tag with / for clarity-->
+        </label>
+<!--        <label>-->
+<!--            Skin type:-->
+<!--            <select name = 'skintype'>-->
+<!--                <option value = 'oily'>Oily</option>-->
+<!--                <option value = 'combination'>Combination</option>-->
+<!--                <option value = 'normal'>Normal</option>-->
+<!--                <option value = 'dry'>Dry</option>-->
+<!--            </select>-->
+<!--        </label>-->
+<!--        <label>-->
+<!--            Manicure or Pedicure?-->
+<!--            <select name = 'manipedi'>-->
+<!--                <option value = 'manicure'>Manicure</option>-->
+<!--                <option value = 'pedicure'>Pedicure</option>-->
+<!--            </select>-->
+<!--        </label>-->
+        <input type = 'submit' value = 'Submit'>
+    </form>
+
+</body>
+</html>
