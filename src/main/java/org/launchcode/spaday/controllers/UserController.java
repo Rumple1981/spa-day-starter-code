@@ -54,7 +54,7 @@ public class UserController {
 
     //   13.3 set up a @GetMapping to link to details.html and provide the username and email-->
     @GetMapping("details/{userId}") // n.b. user as in user/detail is not needed in path because it is above, line 15
-    public String displayUser(@PathVariable int userId){ //n.b. userId on this line is a match to userId one line above
+    public String displayUser(Model model, @PathVariable int userId){ //n.b. userId on this line is a match to userId one line above
             // 1. call to data layer
             User user = UserData.getById(userId);
             // 2. call to model
