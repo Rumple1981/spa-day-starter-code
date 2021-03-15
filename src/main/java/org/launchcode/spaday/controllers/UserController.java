@@ -29,10 +29,19 @@ public class UserController {
             //if the answer is true: return "/user/index"
             //pass welcome text to the index template?   "view template with a message that welcomes the user by username.(terribly written)"
             model.addAttribute("user", user); // add all the user information to the index template
-            return "/user/index";
+//            return "/user/index";  //lead "/" is auto added by thymeleaf
+            return "user/index";
         } else {
-            //if the answer is false
-            return "/user/add";
+            //  8
+            model.addAttribute("user", user);
+            //  9 create an attribute named "error". n.b. textbook described this as "add an error attribute name"
+            //  then go to the add.html file and import the attribute before the add.html form with a th: block and th:if statement.
+            model.addAttribute("error", "passwords do not match");
+            //  10 after the password mismatch auto populate name & email fields with original user entries
+            model.addAttribute("username",user.getUsername());
+            model.addAttribute("email", user.getEmail());
+            //7a-1 if the answer is false redirect to:
+            return "user/add";
         }
             // return ""; -- this return copied from textbook no longer needed
     }

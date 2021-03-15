@@ -6,10 +6,10 @@
     <title>Title</title>
 </head>
 <body>
-<!--7a-2 accept user info from UserController &#45;&#45;NB .username might be tymeleaf code-->
-<!--<h1 th:text="welcome ${user.username} to your page">Welcome</h1> // 7a-2 accept user info from UserController &#45;&#45;NB .username might be tymeleaf code-->
-<!--<h1 th:text="welcome to your page">Welcome</h1> // 7a-2 accept user info from UserController &#45;&#45;NB .username might be tymeleaf code-->
-<h1 th:text="">Welcome</h1>
-
+<!--7a-2 accept user info from UserController &#45;&#45;NB .username might be thymeleaf code-->
+        <!--<h1 th:text="Welcome ${user.username} to your page">Welcome</h1>  Fails-->
+<h1 th:text="${'Welcome ' + user.username + ', to your page.' }">Welcome</h1>
+<!--7b-->
+<label><a href="/" /> Spa Menu </label>
 </body>
 </html>

@@ -11,6 +11,11 @@
     <title>Title</title>
 </head>
 <body>
+<!--9 two options to import error attribute from UserController.java-->
+<!--9 option 1-->
+<!--<th:block th:if="error"></th:block>-->
+<!--9 option 2-->
+<h3 style="color:red;" th:text="${error}"></h3>
 <!-- 6a copy form provided in serviceSelection.html-->
 <!-- 6b modify form to handle username, email, password, plus verify password from java/../models/User-->
     <form method = 'post' action="/user"> <!--6f The form should be set up to POST to /user. by adding action="/user"-->
@@ -19,12 +24,17 @@
 <!--        6c add new "<label>" "username"-->
         <label>
             Username:
-            <input type="text" name="username"/> <!--instructor recommends ending tag with / for clarity-->
+            <!--<input type="text" name="username"/>--> <!--instructor recommends ending tag with / for clarity-->
+            <!--10.1 import saved values for repopulating name and email fields-->
+            <input type="text" th:value="${username}" name="username"/>
+
         </label>
 <!--        6d add new "<label>" "email"-->
         <label>
             Email:
-            <input type="email" name="email"/> <!--instructor recommends ending tag with / for clarity-->
+            <!--<input type="email" name="email"/>--> <!--instructor recommends ending tag with / for clarity-->
+            <input type="email" th:value="${email}" name="email"/>
+
         </label>
 <!--        6d add new "<label>" "password"-->
         <label>
