@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--<html lang="en">-->
+<!-- 13.2 create a user detail html template display the username and email-->
+<!-- 13.3 go back to the UserController to set up a @GetMapping to link here and provide the username and email-->
+<!--Step 14: Add a Date field in User, and initialize it to
+the time the user joined (i.e. when the User object was created).
+Display the value of this property in the user detail view.
+-->
+
+<html lang="en" xmlns:th = "http://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<!--7a-2 accept user info from UserController &#45;&#45;NB .username might be thymeleaf code-->
+<!--<h1 th:text="Welcome ${user.username} to your page">Welcome</h1>  Fails-->
+<h1>Welcome</h1>
+<p th:text="${username}"></p>
+<p th:text="${email}"></p> <!--then -->
+</body>
+</html>

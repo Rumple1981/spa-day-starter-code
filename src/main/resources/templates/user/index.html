@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <!--<html lang="en">-->
+<!--Step 13: display a list of all users by username.
+Each username should have a link that takes you to a detail page
+that lists the user’s username and email.-->
+
 <html lang="en" xmlns:th = "http://www.thymeleaf.org/">
 <head>
     <meta charset="UTF-8">
@@ -11,5 +15,24 @@
 <h1 th:text="${'Welcome ' + user.username + ', to your page.' }">Welcome</h1>
 <!--7b-->
 <label><a href="/" /> Spa Menu </label>
+
+<!--13) create an html list from -->
+<h3>All My Users</h3>
+<!--<ul></ul> instructor stated with ul but switched
+to a table to hold the link in addition to Username-->
+<table>
+<!-- the head row of the table goes here   -->
+    <thead>
+    <th>Username</th>
+    <th>Link</th>
+<!-- the body rows of the table goe here   -->
+    </thead>
+<!-- goto UserController create an addAttribute to use userData to feed the list-->
+    <tr th:each="user : ${users}"><!-- because this is not in a th block th:each will continue to loop. said kyle-->
+        <tr th:text="${user.username}"></tr>
+        <tr><a href="/user/details/1">Show Details</a></tr>
+    </tr>
+</table>
+
 </body>
 </html>
