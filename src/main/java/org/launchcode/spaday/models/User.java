@@ -3,7 +3,7 @@ package org.launchcode.spaday.models;
 public class User {
 //    11) Bonus mission - Add an id field to User, along with accessor methods (with appropriate access level).
 private static int nextId = 1;
-private int Id;
+private int id;
 
 
 
@@ -13,11 +13,12 @@ private int Id;
     private String username;    //step 4a
     private String email;       //step 4a
     private String password;    //step 4a
+//    14) final bonus
 
     // Constructor --- not yet defined at step 4b
 //    11.1) build the constructor
     public User() {
-        Id = nextId;
+        id = nextId;
         nextId++;
     }
 
@@ -28,11 +29,16 @@ private int Id;
     //          provides access to a list of users via add, getAll, and getById.
 
     public int getId() {
-        return this.Id;
+        return this.id;
     }
 
+    public User(String username, String email, String password) {
+        this.username = username;
+        this.email = email;
+        this.password = password;
+    }
 
-    // step 4c -- generate Getters & Setters
+// step 4c -- generate Getters & Setters
 
     public String getUsername() {
         return username;

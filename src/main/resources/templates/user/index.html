@@ -14,7 +14,7 @@ that lists the user’s username and email.-->
         <!--<h1 th:text="Welcome ${user.username} to your page">Welcome</h1>  Fails-->
 <h1 th:text="${'Welcome ' + user.username + ', to your page.' }">Welcome</h1>
 <!--7b-->
-<label><a href="/" /> Spa Menu </label>
+<label><a href="/" /> Spa Menu</a> </label>
 
 <!--13) create an html list from -->
 <h3>All My Users</h3>
@@ -29,8 +29,11 @@ to a table to hold the link in addition to Username-->
     </thead>
 <!-- goto UserController create an addAttribute to use userData to feed the list-->
     <tr th:each="user : ${users}"><!-- because this is not in a th block th:each will continue to loop. said kyle-->
-        <tr th:text="${user.username}"></tr>
-        <tr><a href="/user/details/1">Show Details</a></tr>
+        <td th:text="${user.username}"></td>
+        <td>
+            <a th:href="@{/user/details/{id}(id=${user.id})}">Show Details</a>
+        </td>
+<!--        <td><a href="/user/details">Show Details</a></td>-->
     </tr>
 </table>
 

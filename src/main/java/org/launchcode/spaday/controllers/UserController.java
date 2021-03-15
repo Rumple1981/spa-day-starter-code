@@ -60,7 +60,7 @@ public class UserController {
             // 2. call to model
             model.addAttribute("username", user.getUsername());
             model.addAttribute("email", user.getEmail());
-            return "user/detail";
+            return "user/details";
         }
 }
 
